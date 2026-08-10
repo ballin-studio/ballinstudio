@@ -1,0 +1,93 @@
+BALLIN — PAQUETE FINAL PARA GITHUB PAGES
+========================================
+Repositorio: ballin-studio/ballinstudio
+Web final:   https://ballin-studio.github.io/ballinstudio/
+
+
+QUÉ HAY EN ESTE ZIP
+-------------------
+  index.html              La web completa (todo el código va aquí dentro)
+  support.js              Motor necesario para que la web funcione
+  manifest.webmanifest    Datos del icono al guardar en pantalla de inicio
+  .nojekyll               Archivo técnico obligatorio en GitHub Pages
+  LEEME.txt               Esto que estás leyendo
+
+  assets/                 41 imágenes
+    · favicon-16.png, favicon-32.png, apple-touch-icon.png,
+      icon-192.png, icon-512.png      ← el favicon (los 5 tamaños)
+    · poster-*.jpg  (10)              ← miniatura de cada reel
+    · el resto: fotos de proyectos, retrato, texturas
+
+  videos/                 Los 10 reels
+    rimbux.mp4        duriglass.mp4     apagon.mp4      tokin-privacy.mp4
+    revolutia.mp4     scuffers.mp4      monk-tag.mp4    aspar.mp4
+    foco.mp4          afterset.mp4
+
+Todo es necesario. No sobra nada.
+
+
+CÓMO SUBIRLO (2 tandas)
+-----------------------
+Descomprime el zip. Dentro verás los archivos sueltos y las carpetas
+assets y videos.
+
+TANDA 1 — la web
+  1. Ve a: github.com/ballin-studio/ballinstudio
+  2. Add file → Upload files
+  3. Arrastra: index.html, support.js, manifest.webmanifest, .nojekyll
+     y la carpeta assets COMPLETA
+  4. Botón verde Commit changes
+
+TANDA 2 — los vídeos
+  5. Add file → Upload files otra vez
+  6. Arrastra la carpeta videos COMPLETA
+  7. Commit changes
+
+En GitHub la segunda tanda NO borra la primera (a diferencia de Netlify).
+
+IMPORTANTE: arrastra el CONTENIDO del zip, nunca la carpeta que lo
+envuelve. Si subes la carpeta entera, la web acabaría en una subruta y no
+cargaría.
+
+Si .nojekyll no te aparece en el Finder: pulsa Cmd + Shift + . (punto)
+para ver archivos ocultos.
+
+
+ACTIVAR LA WEB (una sola vez)
+-----------------------------
+  8. Settings → Pages (menú izquierdo)
+  9. Source: Deploy from a branch
+ 10. Branch: main   ·   Carpeta: / (root)   →  Save
+
+Tarda 1-2 minutos. Luego ya funciona para siempre en:
+  https://ballin-studio.github.io/ballinstudio/
+
+
+CAMBIAR UN VÍDEO MÁS ADELANTE
+-----------------------------
+El cliente dice "cambia el de duriglass":
+
+  1. Renombra el vídeo nuevo como  duriglass.mp4
+  2. En el repo entra en la carpeta videos → Add file → Upload files →
+     arrástralo → Commit. Sustituye el viejo automáticamente.
+  3. Borra assets/poster-duriglass.jpg (entra en el archivo → icono de
+     papelera → Commit). La web sacará sola el primer fotograma del vídeo
+     nuevo.
+
+Si quieres la miniatura optimizada (40 KB en vez de varios MB), pídemela:
+"poster de duriglass en el segundo 4".
+
+Un reel NUEVO (no un reemplazo) sí necesita tocar el index.html: dime
+cliente, título y vídeo y te lo devuelvo actualizado.
+
+
+COMPROBACIÓN FINAL
+------------------
+Abre la web y verifica:
+  · Favicon ámbar en la pestaña
+  · Los 10 reels muestran su fotograma fijo, sin ruido ni movimiento
+  · Al hacer clic, el vídeo se abre grande y CON audio desde el principio
+  · En móvil: hero a pantalla completa, sin huecos entre secciones
+
+Cada visita descarga unos 400 KB. Los vídeos solo se descargan al hacer
+clic, así que no hay riesgo de superar ningún límite gratuito.
