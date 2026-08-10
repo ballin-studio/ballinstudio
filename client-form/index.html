@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brief de proyecto — BALLIN</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#F6F1E9;color:#14110E;font-family:'Hanken Grotesk',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:#C74A08;text-decoration:none}
+a:hover{color:#E2540A;text-decoration:underline}
+::selection{background:#FF6B12;color:#fff}
+input,textarea,button,select{font-family:inherit}
+::placeholder{color:#6E5B4C}
+input[type="date"]{color:#14110E}
+@keyframes hlcolor{0%,26%{color:#FFB776}27%,100%{color:#fff}}
+@keyframes hlbox{0%,26%{background:#FF6B12;color:#14110E;transform:scale(1.06)}27%,100%{background:transparent;color:#fff;transform:scale(1)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;padding:clamp(22px,5vw,64px) clamp(16px,5vw,40px) 90px">
+<div style="max-width:760px;margin:0 auto">
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid rgba(20,17,14,.14)">
+    <a href="../" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2rem);letter-spacing:.04em;color:#14110E;text-decoration:none">BALLIN</a>
+    <div style="font-size:11px;font-weight:700;letter-spacing:.22em;color:#6E5B4C;text-align:right">BRIEF DE PROYECTO<br>VALENCIA / DUBLÍN</div>
+  </div>
+
+  <div id="bf-thanks" style="display:none;padding:56px 0 20px">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,7vw,4rem);line-height:1;color:#C74A08">RECIBIDO</div>
+    <p style="margin-top:14px;font-size:1.05rem;line-height:1.6;color:#5A5148;max-width:44ch;text-wrap:pretty">Gracias, ya hemos recibido tu brief. Lo revisamos y te escribimos en menos de 48 horas laborables con una propuesta de enfoque, tiempos y presupuesto.</p>
+    <a href="../" style="display:inline-block;margin-top:26px;padding:13px 22px;border-radius:999px;background:#14110E;color:#F6F1E9;font-size:13px;font-weight:700;letter-spacing:.14em">VOLVER A LA WEB</a>
+  </div>
+
+  <div id="bf-main">
+  <div style="padding:clamp(30px,6vw,54px) 0 clamp(24px,4vw,38px)">
+    <h1 style="font-family:'Hanken Grotesk',sans-serif;font-weight:800;font-size:clamp(1.8rem,5.4vw,3rem);line-height:1.06;letter-spacing:-.02em;max-width:22ch;text-wrap:pretty">Antes de empezar, cuéntanos sobre tu proyecto.</h1>
+    <p style="margin-top:16px;font-size:clamp(1rem,1.4vw,1.1rem);line-height:1.6;color:#5A5148;max-width:52ch;text-wrap:pretty">Con esta información podemos preparar una propuesta ajustada a lo que necesitas desde el primer día. Tómate unos minutos: todo lo que cuentes aquí orienta el trabajo.</p>
+    <div style="margin-top:20px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:#6E5B4C">5 BLOQUES · ~10 MIN · LOS CAMPOS CON * SON OBLIGATORIOS</div>
+  </div>
+
+  <form id="bf-form" action="{{ formAction }}" method="POST" style="display:grid;gap:clamp(38px,6vw,60px)">
+    <input type="hidden" name="_subject" value="Nuevo brief de cliente — BALLIN">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="{{ nextUrl }}">
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">01</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Quién eres</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px">
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:8px">Nombre y apellidos <span style="color:#C74A08">*</span></div>
+          <input type="text" name="Nombre" required="required" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:8px">Marca o proyecto <span style="color:#C74A08">*</span></div>
+          <input type="text" name="Marca" required="required" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:8px">Email <span style="color:#C74A08">*</span></div>
+          <input type="email" name="email" required="required" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:8px">Teléfono o WhatsApp</div>
+          <input type="tel" name="Teléfono" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">Instagram o web</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Si no tienes web, puedes dejarlo sin contestar</div>
+        <input type="text" name="Instagram o web" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+      </div>
+
+    </section>
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">02</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">El proyecto</span>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué servicio buscas?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Marca todos los que apliquen</div>
+        <input type="hidden" name="Servicios" value="">
+        <div data-group="servicios" data-multi="1" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Vídeo / Reels" style="padding:11px 16px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Vídeo / Reels</button>
+          <button type="button" data-val="Diseño y dirección de arte" style="padding:11px 16px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Diseño y dirección de arte</button>
+          <button type="button" data-val="Fotografía" style="padding:11px 16px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Fotografía</button>
+          <button type="button" data-val="Social media (gestión continua)" style="padding:11px 16px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Social media</button>
+          <button type="button" data-val="Campañas ADS" style="padding:11px 16px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Campañas ADS</button>
+          <button type="button" data-val="Branding / identidad visual" style="padding:11px 16px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Branding</button>
+          <button type="button" data-val="Cobertura de eventos" style="padding:11px 16px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Cobertura de eventos</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">Cuéntanos el proyecto <span style="color:#C74A08">*</span></div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Qué necesitas y para qué. Dos o tres frases bastan.</div>
+        <textarea name="El proyecto" required="required" placeholder="Lanzamos una colección en septiembre y necesitamos contenido para Instagram y una campaña de ADS" style="width:100%;min-height:104px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué quieres conseguir en los próximos 90 días?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Cuanto más concreto, mejor</div>
+        <textarea name="Objetivo 90 días" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué vendes ahora mismo?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Y qué te interesa priorizar</div>
+        <textarea name="Qué vende" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué quieres que haga quien lo vea?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">La acción que persigue el contenido</div>
+        <input type="hidden" name="Acción deseada" value="">
+        <div data-group="accion" data-multi="1" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Seguir la cuenta" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Seguir la cuenta</button>
+          <button type="button" data-val="Escribir por DM" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Escribir por DM</button>
+          <button type="button" data-val="Comprar" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Comprar</button>
+          <button type="button" data-val="Reservar una llamada" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Reservar una llamada</button>
+          <button type="button" data-val="Suscribirse" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Suscribirse</button>
+          <button type="button" data-val="Compartirlo" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Compartirlo</button>
+          <button type="button" data-val="Solo reconocer la marca" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Solo reconocer la marca</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:12px">¿En qué momento está la marca?</div>
+        <input type="hidden" name="Momento de la marca" value="">
+        <div data-group="momento" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px">
+          <button type="button" data-val="Arranca de cero" style="display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:15px 16px;border-radius:13px;border:1px solid rgba(20,17,14,.16);background:#fff;cursor:pointer;transition:all .15s ease">
+            <div style="font-weight:700;font-size:14px;color:#14110E">Arranca de cero</div>
+            <div style="margin-top:5px;font-size:12.5px;line-height:1.45;color:#6E5B4C">Todavía no hay nada definido</div>
+          </button>
+          <button type="button" data-val="En marcha, sin identidad clara" style="display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:15px 16px;border-radius:13px;border:1px solid rgba(20,17,14,.16);background:#fff;cursor:pointer;transition:all .15s ease">
+            <div style="font-weight:700;font-size:14px;color:#14110E">En marcha, algo desordenada</div>
+            <div style="margin-top:5px;font-size:12.5px;line-height:1.45;color:#6E5B4C">Ya funciona, pero cada pieza sigue su propio criterio</div>
+          </button>
+          <button type="button" data-val="Identidad definida, busca evolución" style="display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:15px 16px;border-radius:13px;border:1px solid rgba(20,17,14,.16);background:#fff;cursor:pointer;transition:all .15s ease">
+            <div style="font-weight:700;font-size:14px;color:#14110E">Identidad definida</div>
+            <div style="margin-top:5px;font-size:12.5px;line-height:1.45;color:#6E5B4C">Existen unas normas de marca que hay que respetar</div>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿A quién le habla?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Edad, lugar, qué consumen, cómo se comunican</div>
+        <textarea name="Público objetivo" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:8px">¿Qué público NO quieres atraer?</div>
+        <textarea name="Público a evitar" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:8px">¿Qué te diferencia de otras marcas de tu sector?</div>
+        <textarea name="Diferencial" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Dónde se va a publicar?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Esto define los formatos de entrega</div>
+        <input type="hidden" name="Formatos y destino" value="">
+        <div data-group="formatos" data-multi="1" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Instagram / TikTok" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Instagram / TikTok</button>
+          <button type="button" data-val="Stories" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Stories</button>
+          <button type="button" data-val="Feed" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Feed</button>
+          <button type="button" data-val="YouTube (horizontal)" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">YouTube (horizontal)</button>
+          <button type="button" data-val="Anuncios de pago (Meta / TikTok Ads)" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Anuncios de pago</button>
+          <button type="button" data-val="Web" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Web</button>
+          <button type="button" data-val="Impresión" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Impresión</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Cuántas piezas necesitas?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Por ejemplo: 3 a la semana · 30 al mes · una campaña puntual</div>
+        <input type="text" name="Número de piezas" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+      </div>
+    </section>
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">03</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Vídeo y edición</span>
+      </div>
+      <p style="font-size:13.5px;line-height:1.55;color:#6E5B4C;margin-top:-8px">Si tu proyecto no incluye vídeo, puedes pasar al siguiente bloque.</p>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">Los subtítulos, ¿cómo los quieres?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:14px">Los ejemplos son orientativos: marcan la intensidad, no la tipografía final.</div>
+        <input type="hidden" name="Estilo de subtítulos" value="">
+        <div data-group="subs" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px">
+
+          <button type="button" data-val="Simple" style="display:flex;flex-direction:column;gap:12px;padding:14px;border-radius:14px;border:1px solid rgba(20,17,14,.16);background:#fff;cursor:pointer;transition:all .15s ease">
+            <div style="position:relative;aspect-ratio:9/16;max-height:210px;border-radius:9px;overflow:hidden;background:linear-gradient(170deg,#2a211a,#141010);display:flex;align-items:flex-end;justify-content:center;padding:0 10px 16px">
+              <div style="position:absolute;top:11px;left:11px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.09)"></div>
+              <div style="position:absolute;top:46px;left:11px;right:11px;height:1px;background:rgba(255,255,255,.06)"></div>
+              <div style="text-align:center;font-size:9.5px;font-weight:500;line-height:1.35;color:rgba(255,255,255,.95);letter-spacing:.01em">esto es un subtítulo discreto</div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:14px">Simple</div>
+              <div style="margin-top:4px;font-size:12px;line-height:1.45;color:#6E5B4C">Discreto, en minúsculas. La imagen lleva el peso.</div>
+            </div>
+          </button>
+
+          <button type="button" data-val="Media" style="display:flex;flex-direction:column;gap:12px;padding:14px;border-radius:14px;border:1px solid rgba(20,17,14,.16);background:#fff;cursor:pointer;transition:all .15s ease">
+            <div style="position:relative;aspect-ratio:9/16;max-height:210px;border-radius:9px;overflow:hidden;background:linear-gradient(170deg,#2f2318,#141010);display:flex;align-items:flex-end;justify-content:center;padding:0 9px 16px">
+              <div style="position:absolute;top:11px;left:11px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.09)"></div>
+              <div style="position:absolute;top:46px;left:11px;right:11px;height:1px;background:rgba(255,255,255,.06)"></div>
+              <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:3px 5px;text-align:center;font-size:11px;font-weight:800;line-height:1.25;text-transform:uppercase;color:#fff;letter-spacing:.005em;text-shadow:0 2px 7px rgba(0,0,0,.85)">
+                <span style="animation:hlcolor 2.4s steps(1,end) infinite">ESTO</span>
+                <span style="animation:hlcolor 2.4s steps(1,end) .8s infinite">SE</span>
+                <span style="animation:hlcolor 2.4s steps(1,end) 1.6s infinite">LEE</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:14px">Media</div>
+              <div style="margin-top:4px;font-size:12px;line-height:1.45;color:#6E5B4C">Mayúsculas con peso y la palabra clave en color. La opción más habitual.</div>
+            </div>
+          </button>
+
+          <button type="button" data-val="Alta" style="display:flex;flex-direction:column;gap:12px;padding:14px;border-radius:14px;border:1px solid rgba(20,17,14,.16);background:#fff;cursor:pointer;transition:all .15s ease">
+            <div style="position:relative;aspect-ratio:9/16;max-height:210px;border-radius:9px;overflow:hidden;background:linear-gradient(170deg,#382415,#141010);display:flex;align-items:flex-end;justify-content:center;padding:0 8px 15px">
+              <div style="position:absolute;top:11px;left:11px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.09)"></div>
+              <div style="position:absolute;top:46px;left:11px;right:11px;height:1px;background:rgba(255,255,255,.06)"></div>
+              <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;text-align:center;font-size:12.5px;font-weight:900;line-height:1.15;text-transform:uppercase;color:#fff;letter-spacing:-.01em">
+                <span style="display:inline-block;padding:1px 4px;border-radius:4px;animation:hlbox 2.4s steps(1,end) infinite">ESTO</span>
+                <span style="display:inline-block;padding:1px 4px;border-radius:4px;animation:hlbox 2.4s steps(1,end) .8s infinite">PEGA</span>
+                <span style="display:inline-block;padding:1px 4px;border-radius:4px;animation:hlbox 2.4s steps(1,end) 1.6s infinite">FUERTE</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:14px">Alta</div>
+              <div style="margin-top:4px;font-size:12px;line-height:1.45;color:#6E5B4C">Palabra a palabra, en caja de color. Máxima presencia en pantalla.</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué tipo de piezas encajan con la marca?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Marca las que encajen con la marca</div>
+        <input type="hidden" name="Tipos de pieza" value="">
+        <div data-group="tipos" data-multi="1" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Talking head" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Talking head</button>
+          <button type="button" data-val="B-roll cinematográfico" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">B-roll cinematográfico</button>
+          <button type="button" data-val="Lifestyle" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Lifestyle</button>
+          <button type="button" data-val="Tutoriales" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Tutoriales</button>
+          <button type="button" data-val="Storytelling" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Storytelling</button>
+          <button type="button" data-val="Podcast / entrevista" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Podcast / entrevista</button>
+          <button type="button" data-val="Vlog" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Vlog</button>
+          <button type="button" data-val="Trends adaptados" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Trends adaptados</button>
+          <button type="button" data-val="Testimonios" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Testimonios</button>
+          <button type="button" data-val="Carruseles" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Carruseles</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:12px">Ritmo del montaje</div>
+        <input type="hidden" name="Ritmo" value="">
+        <div data-group="ritmo" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Pausado y cinematográfico" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Pausado, cinematográfico</button>
+          <button type="button" data-val="Medio" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Medio</button>
+          <button type="button" data-val="Rápido, corte seco" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Rápido, corte seco</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:12px">Audio</div>
+        <input type="hidden" name="Audio" value="">
+        <div data-group="audio" data-multi="1" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Música de tendencia" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Música de tendencia</button>
+          <button type="button" data-val="Música neutra / de librería" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Música de librería</button>
+          <button type="button" data-val="Voz en off" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Voz en off</button>
+          <button type="button" data-val="Sonido ambiente" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Sonido ambiente</button>
+          <button type="button" data-val="Sin audio" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Sin audio</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:12px">Duración por pieza</div>
+        <input type="hidden" name="Duración" value="">
+        <div data-group="duracion" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Menos de 15s" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">&lt; 15s</button>
+          <button type="button" data-val="15 a 30s" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">15–30s</button>
+          <button type="button" data-val="30 a 60s" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">30–60s</button>
+          <button type="button" data-val="Más de 60s" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">&gt; 60s</button>
+          <button type="button" data-val="No lo sé" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">No lo sé</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:12px">¿Quién graba el material?</div>
+        <input type="hidden" name="Quién graba" value="">
+        <div data-group="graba" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Ballin graba todo" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Grabáis vosotros</button>
+          <button type="button" data-val="Lo graba el cliente" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Lo grabo yo</button>
+          <button type="button" data-val="Material ya existente" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Ya tengo el material</button>
+          <button type="button" data-val="Mixto" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Mixto</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:8px">¿Necesitas ayuda con los guiones?</div>
+        <input type="hidden" name="Guiones" value="">
+        <div data-group="guiones" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Sí, escribidlos vosotros" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Sí, escribidlos vosotros</button>
+          <button type="button" data-val="No, los llevo yo" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">No, los llevo yo</button>
+          <button type="button" data-val="A medias" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">A medias</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:12px">¿Hace falta rotulación o motion?</div>
+        <input type="hidden" name="Motion y rotulación" value="">
+        <div data-group="motion" data-multi="1" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Logo animado" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Logo animado</button>
+          <button type="button" data-val="Rótulos y precios" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Rótulos y precios</button>
+          <button type="button" data-val="Motion graphics" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Motion graphics</button>
+          <button type="button" data-val="Nada, solo montaje" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Nada, solo montaje</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">04</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Identidad visual</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px">
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:4px">Tipografías que quieres usar</div>
+          <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Nombres, o descríbelas</div>
+          <textarea name="Tipografías SÍ" placeholder="La de nuestro logo y una condensada para titulares" style="width:100%;min-height:88px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:4px">Tipografías que NO</div>
+          <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Si hay alguna que descartas, indícala</div>
+          <textarea name="Tipografías NO" placeholder="Preferimos evitar las manuscritas" style="width:100%;min-height:88px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:4px">Colores que SÍ</div>
+          <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Códigos hex si los tienes</div>
+          <textarea name="Colores SÍ" placeholder="#0A0705, un ámbar tipo #FF6B12 y blancos rotos" style="width:100%;min-height:88px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:4px">Colores que NO</div>
+          <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Los que están prohibidos</div>
+          <textarea name="Colores NO" placeholder="Rosas y pasteles. El verde lo usa nuestra competencia." style="width:100%;min-height:88px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué tono tiene que tener?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Elige hasta tres para que la dirección quede clara</div>
+        <input type="hidden" name="Tono" value="">
+        <div data-group="tono" data-multi="1" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Elegante" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Elegante</button>
+          <button type="button" data-val="Callejero" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Callejero</button>
+          <button type="button" data-val="Minimalista" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Minimalista</button>
+          <button type="button" data-val="Maximalista" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Maximalista</button>
+          <button type="button" data-val="Cálido" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Cálido</button>
+          <button type="button" data-val="Frío / técnico" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Frío / técnico</button>
+          <button type="button" data-val="Lujo" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Lujo</button>
+          <button type="button" data-val="Gamberro / con humor" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Gamberro</button>
+          <button type="button" data-val="Nostálgico / analógico" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Nostálgico</button>
+          <button type="button" data-val="Deportivo / energético" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Deportivo</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:8px">¿Qué tono NO quieres usar jamás?</div>
+        <textarea name="Tono prohibido" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">Palabras o expresiones que SÍ quieres usar</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Y las que preferís no usar</div>
+        <textarea name="Vocabulario de marca" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Tienes manual de marca?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Si la respuesta es sí, no olvides enviarnos el documento por Google Drive</div>
+        <input type="hidden" name="Manual de marca" value="">
+        <div data-group="manual" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Sí, completo" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Sí, completo</button>
+          <button type="button" data-val="Básico (logo y colores)" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Básico</button>
+          <button type="button" data-val="No, hay que crearlo" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">No existe</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué material tienes ya?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Marca lo que puedas enviarnos al empezar</div>
+        <input type="hidden" name="Material disponible" value="">
+        <div data-group="material" data-multi="1" style="display:flex;flex-wrap:wrap;gap:9px">
+          <button type="button" data-val="Logo en vectorial" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Logo vectorial</button>
+          <button type="button" data-val="Guidelines / manual" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Guidelines</button>
+          <button type="button" data-val="Fotos de producto" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Fotos de producto</button>
+          <button type="button" data-val="Fotos de lifestyle" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Fotos lifestyle</button>
+          <button type="button" data-val="Vídeo bruto" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Vídeo bruto</button>
+          <button type="button" data-val="Textos / copys" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Textos</button>
+          <button type="button" data-val="Nada todavía" style="padding:10px 15px;border-radius:999px;border:1px solid rgba(20,17,14,.16);background:#fff;font-size:13.5px;font-weight:600;color:#14110E;cursor:pointer;transition:all .15s ease">Nada todavía</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">Enlace a tu material</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Sube el logo, el manual y las fotos a una carpeta de Google Drive y pega aquí el enlace</div>
+        <input type="text" name="Enlace del material" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+      </div>
+    </section>
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">05</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Referencias y plazos</span>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">Referencias que te gustan</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Links de Instagram, TikTok, Pinterest, marcas. Tres o cuatro.</div>
+        <textarea name="Referencias SÍ" placeholder="instagram.com/… — por el color&#10;tiktok.com/… — por el ritmo del montaje" style="width:100%;min-height:104px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué te gusta exactamente de ellas?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Qué te interesa de cada una: color, ritmo, encuadre…</div>
+        <textarea name="Por qué esas referencias" placeholder="El color apagado y los encuadres cerrados" style="width:100%;min-height:88px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">Referencias que NO quieres ni de lejos</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Saber qué descartar es igual de útil</div>
+        <textarea name="Referencias NO" placeholder="Zooms bruscos, flechas y textos sobreimpresos" style="width:100%;min-height:88px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px">
+        <div>
+          <div style="font-weight:600;font-size:13px;margin-bottom:8px">Fecha de entrega de las piezas</div>
+          <input type="date" name="Fecha de entrega" style="width:100%;padding:12px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </div>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Qué NO quieres que pase con tu marca?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Lo que preferirías evitar en cualquier caso</div>
+        <textarea name="Líneas rojas" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:8px">¿Cómo sabremos dentro de tres meses que esto ha funcionado?</div>
+        <textarea name="Medida de éxito" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+
+      <div>
+        <div style="font-weight:600;font-size:13px;margin-bottom:4px">¿Algo más que debamos saber?</div>
+        <div style="font-size:12.5px;color:#6E5B4C;margin-bottom:12px">Cualquier cosa que no haya entrado en las preguntas anteriores</div>
+        <textarea name="Notas" placeholder="Hemos trabajado antes con otro equipo y hubo puntos que no funcionaron" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </div>
+    </section>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding-top:8px;border-top:1px solid rgba(20,17,14,.14)">
+      <button type="submit" style="padding:17px 34px;border-radius:999px;border:none;background:#14110E;color:#F6F1E9;font-size:13px;font-weight:700;letter-spacing:.16em;cursor:pointer;transition:background .2s ease" style-hover="background:#C74A08">ENVIAR EL BRIEF</button>
+      <div style="font-size:12.5px;line-height:1.5;color:#6E5B4C;max-width:34ch">Revisamos el brief y te respondemos en menos de 48 h laborables con enfoque, tiempos y presupuesto.</div>
+    </div>
+  </form>
+  </div>
+
+  <div style="margin-top:70px;padding-top:20px;border-top:1px solid rgba(20,17,14,.12);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:11.5px;font-weight:600;letter-spacing:.14em;color:#6E5B4C">
+    <span>BALLIN · DIEGO JORQUERA</span>
+    <span>DIEGO.JORK@GMAIL.COM</span>
+  </div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;diego.jork@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Envío&quot;},&quot;nextUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.ballinstudio.com/client-form/?enviado=1&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Envío&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const mail = this.props.email || 'diego.jork@gmail.com';
+    return {
+      formAction: 'https://formsubmit.co/' + mail,
+      nextUrl: this.props.nextUrl || 'https://www.ballinstudio.com/client-form/?enviado=1'
+    };
+  }
+
+  componentDidMount() {
+    const root = this.rootEl || document;
+    const SEL = { border: '#C74A08', bg: '#FFF7F0', shadow: 'inset 0 0 0 1px #C74A08' };
+
+    const paint = (el, on) => {
+      el.style.borderColor = on ? SEL.border : 'rgba(20,17,14,.16)';
+      el.style.background = on ? SEL.bg : '#fff';
+      el.style.boxShadow = on ? SEL.shadow : 'none';
+      el.dataset.on = on ? '1' : '';
+    };
+
+    const sync = group => {
+      const hidden = group.parentElement.querySelector('input[type="hidden"]');
+      if (!hidden) return;
+      const vals = [...group.querySelectorAll('[data-val]')]
+        .filter(b => b.dataset.on === '1')
+        .map(b => b.dataset.val);
+      hidden.value = vals.join(', ');
+    };
+
+    this._onClick = e => {
+      const btn = e.target.closest('[data-val]');
+      if (!btn) return;
+      const group = btn.closest('[data-group]');
+      if (!group) return;
+      e.preventDefault();
+      const multi = group.dataset.multi === '1';
+      if (multi) {
+        paint(btn, btn.dataset.on !== '1');
+      } else {
+        group.querySelectorAll('[data-val]').forEach(b => paint(b, b === btn));
+      }
+      sync(group);
+    };
+    root.addEventListener('click', this._onClick);
+
+    // Landing back from FormSubmit: swap the form for the thank-you panel.
+    if (/[?&]enviado=1/.test(location.search)) {
+      const main = root.querySelector('#bf-main');
+      const th = root.querySelector('#bf-thanks');
+      if (main) main.style.display = 'none';
+      if (th) th.style.display = 'block';
+    }
+  }
+
+  componentWillUnmount() {
+    const root = this.rootEl || document;
+    if (this._onClick) root.removeEventListener('click', this._onClick);
+  }
+}
+</script>
+</body>
+</html>
+
+BALLIN — SUBIR EL FORMULARIO DE BRIEF
+=====================================
+URL final:  https://www.ballinstudio.com/client-form/
+
+
+CÓMO SUBIRLO (2 minutos)
+------------------------
+1. Ve a github.com/ballin-studio/ballinstudio
+2. Add file → Create new file
+3. En el nombre escribe exactamente:   client-form/index.html
+   (la barra crea la carpeta sola)
+4. Commit changes
+5. Ahora entra en el archivo recién creado → icono del lápiz (Edit)
+6. Borra lo que haya y pega TODO el contenido de index.html de este zip
+   (ábrelo con TextEdit o cualquier editor, Cmd+A, Cmd+C)
+7. Commit changes
+
+En 1-2 minutos está publicado.
+
+
+IMPORTANTE: ACTIVAR EL ENVÍO (solo la primera vez)
+--------------------------------------------------
+El formulario manda las respuestas a diego.jork@gmail.com a través de
+FormSubmit (gratis, sin cuenta). Para que funcione:
+
+1. Abre https://www.ballinstudio.com/client-form/
+2. Rellena el formulario con cualquier cosa y envíalo
+3. Te llega un email de FormSubmit pidiendo confirmación → pulsa el enlace
+4. A partir de ahí, cada brief te llega directo a tu correo, con las
+   respuestas en una tabla
+
+Si no confirmas ese primer email, los envíos no llegan.
+
+Para cambiar el email de destino: busca en el index.html la línea que
+contiene "formsubmit.co" y sustituye la dirección.
+
+
+NO APARECE EN EL MENÚ
+---------------------
+La página no está enlazada desde ninguna parte de la web: solo llega quien
+tenga la URL. Mándala por WhatsApp o email a cada cliente nuevo.
+
+Google podría indexarla con el tiempo. Si quieres evitarlo del todo,
+dímelo y le añado la etiqueta que lo bloquea.
+
+
+QUÉ PREGUNTA (42 campos en 5 bloques)
+-------------------------------------
+01 Quién eres         nombre, marca, email, teléfono, Instagram o web
+02 El proyecto        servicios, descripción, objetivo a 90 días, qué
+                      vende, acción deseada, momento de la marca,
+                      público objetivo, público a evitar, diferencial,
+                      dónde se publica, cuántas piezas
+03 Vídeo y edición    estilo de subtítulos (3 ejemplos animados), tipos
+                      de pieza, ritmo, audio, duración, quién graba,
+                      guiones, motion y rotulación
+04 Identidad visual   tipografías sí/no, colores sí/no, tono, tono
+                      prohibido, vocabulario de marca, manual de marca,
+                      material disponible, enlace de Drive
+05 Referencias        referencias sí, por qué, referencias no, fecha de
+                      entrega, líneas rojas, medida de éxito, notas
+
+Obligatorios solo los cuatro marcados con asterisco: nombre, marca,
+email y descripción del proyecto. El resto es opcional para que nadie lo
+abandone a medias.
+
+
+SOBRE LOS ARCHIVOS
+------------------
+El formulario no acepta subir archivos: no hay servidor que los guarde.
+En su lugar pide un enlace de Google Drive, y en "¿Tienes manual de
+marca?" avisa de que hay que enviar el documento por ahí.
+
+LOS EJEMPLOS DE SUBTÍTULOS
+--------------------------
+Están recreados con código (Simple / Media / Alta), animados en bucle.
+Cuando quieras cambiarlos por clips o capturas reales tuyas, pásamelos y
+los sustituyo.
+
+
+AL ENVIAR
+---------
+El cliente vuelve a la misma página con un mensaje de "RECIBIDO" y un
+botón para volver a la web. Ese texto se puede cambiar: está en el
+index.html, busca la palabra RECIBIDO.
