@@ -7,7 +7,7 @@ POR QUÉ NO SE VEÍAN LAS IMÁGENES NI LOS VÍDEOS DE FONDO
   archivos de más de 25 MB, y si uno supera ese tamaño se cancela la tanda entera.
 
 QUÉ SUBIR (github.com/ballin-studio/ballinstudio → Add file → Upload files)
-  Tanda 1: index.html + carpeta assets → Commit changes
+  Tanda 1: index.html + favicon.ico + carpeta assets → Commit changes
   Tanda 2: carpeta videos (contiene solo preview/, todas pesan poco) → Commit changes
 
   Los vídeos completos que ya están en videos/ se quedan como están. No hace falta tocarlos.
