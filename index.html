@@ -494,7 +494,7 @@ class Component extends DCLogic {
       st.textContent = `
         #ballin-root .mq{font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:clamp(13px,1.5vw,17px);letter-spacing:.16em;white-space:nowrap;display:inline-block;color:transparent;background:linear-gradient(100deg,#8a7869,#FFB776,#8a7869);-webkit-background-clip:text;background-clip:text}
         #ballin-root .art{font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:clamp(2rem,5vw,4.6rem);letter-spacing:-.04em;color:#F3EADD;text-transform:uppercase;display:inline-flex;align-items:center}
-        #ballin-root .art.dim{color:transparent;-webkit-text-stroke:1.4px rgba(243,234,221,.4)}
+        #ballin-root .art.dim{color:rgba(243,234,221,.42)}
         #ballin-root .art i{font-style:normal;display:inline-block;width:.56em;height:.56em;margin:0 .3em;vertical-align:0;line-height:0;color:transparent;text-indent:-999px;overflow:hidden;background:linear-gradient(135deg,#FFE7C2,#FF8A2A 45%,#FF3D0A);-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3Cpath%20d='M60%208%20Q64.5%2052.2%20105%2034%20Q69%2060%20105%2086%20Q64.5%2067.8%2060%20112%20Q55.5%2067.8%2015%2086%20Q51%2060%2015%2034%20Q55.5%2052.2%2060%208%20Z'%20fill='black'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3Cpath%20d='M60%208%20Q64.5%2052.2%20105%2034%20Q69%2060%20105%2086%20Q64.5%2067.8%2060%20112%20Q55.5%2067.8%2015%2086%20Q51%2060%2015%2034%20Q55.5%2052.2%2060%208%20Z'%20fill='black'/%3E%3C/svg%3E") center/contain no-repeat}
         #ballin-root .brand{aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;text-align:center;background:#0d0806;color:#cdbfb0;font-weight:700;font-size:clamp(.8rem,1vw,1.02rem);letter-spacing:.01em;padding:10px;transition:.35s}
         #ballin-root .brand:hover{background:linear-gradient(150deg,#FF6B12,#B7350B);color:#0a0705;transform:scale(1.02)}
@@ -765,7 +765,7 @@ class Component extends DCLogic {
       const prevs = [...root.querySelectorAll('.reel video.rprev')];
       prevs.forEach(v => { v.muted = true; v.defaultMuted = true; v.volume = 0;
         v.addEventListener('playing', () => { v.style.opacity = '1'; });
-        v.addEventListener('error', () => v.remove(), { once: true }); });
+        v.addEventListener('error', () => { if (!v.dataset.full) { v.dataset.full = '1'; v.src = v.dataset.src.replace('videos/preview/', 'videos/'); v.play().catch(()=>{}); } else v.remove(); }); });
       const io = new IntersectionObserver(es => es.forEach(e => {
         const v = e.target;
         if (e.isIntersecting) { if (!v.src) { v.src = v.dataset.src; } v.play().catch(()=>{}); }
@@ -861,7 +861,7 @@ class Component extends DCLogic {
       let ci = 0, k = 0, timer = null, alive = true;
       const load = (v, c) => new Promise(res => {
         const go = () => { try { v.currentTime = c.t; } catch(e){} res(); };
-        if (v.dataset.src !== c.src) { v.dataset.src = c.src; v.src = c.src; v.addEventListener('loadedmetadata', go, {once:true}); v.load(); } else go();
+        if (v.dataset.src !== c.src) { v.dataset.src = c.src; v.src = c.src; v.addEventListener('loadedmetadata', go, {once:true}); v.addEventListener('error', () => { const full = c.src.replace('videos/preview/', 'videos/'); if (v.src.indexOf(full) < 0) { v.src = full; v.load(); } else res(); }, {once:true}); v.load(); } else go();
       });
       const cutCol = async (col, clip) => {
         const back = col.vids[1 - col.front], old = col.vids[col.front];

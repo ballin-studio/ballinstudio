@@ -1,22 +1,16 @@
-BALLIN — PAQUETE PARA GITHUB PAGES (versión actual)
-===================================================
-Repositorio: ballin-studio/ballinstudio
+BALLIN — ACTUALIZACIÓN
+======================
 
-QUÉ HAY
-  index.html, support.js, crystal3d.js, manifest.webmanifest, .nojekyll
-  assets/          imágenes, favicon, pósters de reels, crystal-shape.json
-  videos/          10 reels completos
-  videos/preview/  10 previews ligeras (en bucle, sin audio)
+POR QUÉ NO SE VEÍAN LAS IMÁGENES NI LOS VÍDEOS DE FONDO
+  En el servidor faltan la carpeta assets actualizada y la carpeta videos/preview.
+  Seguramente falló la subida de la carpeta videos: GitHub no deja subir por la web
+  archivos de más de 25 MB, y si uno supera ese tamaño se cancela la tanda entera.
 
-CÓMO SUBIRLO
-  1. Descomprime. Arrastra el CONTENIDO (no la carpeta que lo envuelve).
-  2. github.com/ballin-studio/ballinstudio → Add file → Upload files
-  3. Tanda 1: index.html, support.js, crystal3d.js, manifest.webmanifest,
-     .nojekyll y la carpeta assets → Commit changes
-  4. Tanda 2: la carpeta videos (incluye preview/) → Commit changes
+QUÉ SUBIR (github.com/ballin-studio/ballinstudio → Add file → Upload files)
+  Tanda 1: index.html + carpeta assets → Commit changes
+  Tanda 2: carpeta videos (contiene solo preview/, todas pesan poco) → Commit changes
 
-  Sobrescribe los archivos antiguos con el mismo nombre. No hace falta borrar nada.
-  .nojekyll oculto en Mac: Cmd + Shift + . en el Finder.
+  Los vídeos completos que ya están en videos/ se quedan como están. No hace falta tocarlos.
+  Arrastra el contenido de esta carpeta, nunca la carpeta que lo envuelve.
 
-Si Pages no está activo: Settings → Pages → Deploy from a branch → main / (root).
-Tarda 1-2 min en actualizarse. Si ves la versión vieja, recarga con Cmd + Shift + R.
+Espera 1-2 min y recarga con Cmd + Shift + R.
