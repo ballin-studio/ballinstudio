@@ -1,16 +1,13 @@
-BALLIN — ACTUALIZACIÓN
-======================
-
-POR QUÉ NO SE VEÍAN LAS IMÁGENES NI LOS VÍDEOS DE FONDO
-  En el servidor faltan la carpeta assets actualizada y la carpeta videos/preview.
-  Seguramente falló la subida de la carpeta videos: GitHub no deja subir por la web
-  archivos de más de 25 MB, y si uno supera ese tamaño se cancela la tanda entera.
+BALLIN — ACTUALIZACIÓN 2
+========================
 
 QUÉ SUBIR (github.com/ballin-studio/ballinstudio → Add file → Upload files)
-  Tanda 1: index.html + favicon.ico + carpeta assets → Commit changes
-  Tanda 2: carpeta videos (contiene solo preview/, todas pesan poco) → Commit changes
+  Arrastra el CONTENIDO de esta carpeta (index.html + carpeta assets), no la carpeta que lo envuelve.
+  → Commit changes
 
-  Los vídeos completos que ya están en videos/ se quedan como están. No hace falta tocarlos.
-  Arrastra el contenido de esta carpeta, nunca la carpeta que lo envuelve.
+Reemplaza: index.html
+Añade (nuevos): assets/home-flutes.png, assets/logo-crystal-crop.png,
+                assets/logos/ (36 logos), assets/fonts/ (tipografía Creato Display)
 
+Los vídeos y el resto de imágenes ya están en el servidor; no hace falta tocarlos.
 Espera 1-2 min y recarga con Cmd + Shift + R.
