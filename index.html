@@ -835,7 +835,8 @@ class Component extends DCLogic {
       const prevs = [...root.querySelectorAll('.reel video.rprev')];
       prevs.forEach(v => { v.muted = true; v.defaultMuted = true; v.volume = 0;
         v.addEventListener('playing', () => { v.style.opacity = '1'; });
-        v.addEventListener('error', () => { if (!v.dataset.full) { v.dataset.full = '1'; v.src = v.dataset.src.replace('videos/preview/', 'videos/'); v.play().catch(()=>{}); } else v.remove(); }); });
+        const pc = [v.dataset.src.replace('videos/preview/', 'preview-'), v.dataset.src.replace('videos/preview/', 'video/preview/'), v.dataset.src.replace('videos/preview/', 'videos/'), v.dataset.src.replace('videos/preview/', '')]; let pi = 0;
+        v.addEventListener('error', () => { if (pi < pc.length) { v.src = pc[pi++]; v.play().catch(()=>{}); } else v.remove(); }); });
       const io = new IntersectionObserver(es => es.forEach(e => {
         const v = e.target;
         if (e.isIntersecting) { if (!v.src) { v.src = v.dataset.src; } v.play().catch(()=>{}); }
