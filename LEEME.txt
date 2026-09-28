@@ -8,7 +8,7 @@ QUÉ SUBIR (github.com/ballin-studio/ballinstudio → Add file → Upload files)
 Reemplaza: index.html, support.js
 Añade (nuevos):
   assets/  → portadas nuevas (Duriglass, cartel Foco), piezas de diseño e IA,
-             fotos nuevas y logos/convento.png
+             fotos nuevas, mommyslove.jpg y logos/convento.png
   videos/  → bad-socials-ai.mp4, bad-socials-ai-2.mp4, afterset-ai.mp4 (apartado IA)
 
 Si GitHub avisa de que algún archivo ya existe, reemplázalo sin problema.
