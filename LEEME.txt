@@ -1,13 +1,15 @@
-BALLIN — ACTUALIZACIÓN 2
+BALLIN — ACTUALIZACIÓN 3
 ========================
 
 QUÉ SUBIR (github.com/ballin-studio/ballinstudio → Add file → Upload files)
-  Arrastra el CONTENIDO de esta carpeta (index.html + carpeta assets), no la carpeta que lo envuelve.
-  → Commit changes
+  Arrastra el CONTENIDO de esta carpeta (index.html, support.js, assets, videos),
+  no la carpeta que lo envuelve. → Commit changes
 
-Reemplaza: index.html
-Añade (nuevos): assets/home-flutes.png, assets/logo-crystal-crop.png,
-                assets/logos/ (36 logos), assets/fonts/ (tipografía Creato Display)
+Reemplaza: index.html, support.js
+Añade (nuevos):
+  assets/  → portadas nuevas (Duriglass, cartel Foco), piezas de diseño e IA,
+             fotos nuevas y logos/convento.png
+  videos/  → bad-socials-ai.mp4, bad-socials-ai-2.mp4, afterset-ai.mp4 (apartado IA)
 
-Los vídeos y el resto de imágenes ya están en el servidor; no hace falta tocarlos.
+Si GitHub avisa de que algún archivo ya existe, reemplázalo sin problema.
 Espera 1-2 min y recarga con Cmd + Shift + R.
