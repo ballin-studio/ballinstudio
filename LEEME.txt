@@ -1,15 +1,22 @@
-BALLIN — ACTUALIZACIÓN 3
-========================
+ACTUALIZAR-4 — BALLIN
+=====================
 
-QUÉ SUBIR (github.com/ballin-studio/ballinstudio → Add file → Upload files)
-  Arrastra el CONTENIDO de esta carpeta (index.html, support.js, assets, videos),
-  no la carpeta que lo envuelve. → Commit changes
+POR QUÉ NO SALÍAN LOS LOGOS
+  La carpeta assets/logos del servidor solo tenía 1 logo. Aquí van los 37.
 
-Reemplaza: index.html, support.js
-Añade (nuevos):
-  assets/  → portadas nuevas (Duriglass, cartel Foco), piezas de diseño e IA,
-             fotos nuevas, diego-retrato.jpg (foto de Diego), mommyslove.jpg y logos/convento.png
-  videos/  → bad-socials-ai.mp4, bad-socials-ai-2.mp4, afterset-ai.mp4 (apartado IA)
+QUÉ SUBIR (github.com → repo de la web → Add file → Upload files)
+  Arrastra el CONTENIDO de esta carpeta (no la carpeta):
+    - index.html   (reemplaza)
+    - support.js   (reemplaza)
+    - assets       (contiene logos/ → se añaden los logos que faltaban)
+  → Commit changes
 
-Si GitHub avisa de que algún archivo ya existe, reemplázalo sin problema.
-Espera 1-2 min y recarga con Cmd + Shift + R.
+  No toques videos/ ni client-form/: ya están bien.
+
+Espera 1-2 min y recarga con Cmd + Shift + R (o ventana privada).
+
+CÓMO COMPROBAR
+  - Debajo de los artistas salen los logos de marcas (no nombres con icono roto).
+  - Justo debajo de los logos: "Para quién es".
+  - Contadores: +100 / +8 / +4000 / +250M.
+  - Pie en una sola línea, sin Bali.
