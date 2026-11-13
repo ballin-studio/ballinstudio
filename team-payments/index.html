@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pagos del equipo — BALLIN</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#F6F1E9;color:#14110E;font-family:'Hanken Grotesk',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:#C74A08;text-decoration:none}
+a:hover{color:#E2540A;text-decoration:underline}
+::selection{background:#FF6B12;color:#fff}
+input,textarea,button,select{font-family:inherit}
+input:focus,select:focus,textarea:focus{border-color:#C74A08!important}
+::placeholder{color:#8A7868}
+</style>
+</helmet>
+
+<div style="min-height:100vh;padding:clamp(22px,5vw,64px) clamp(16px,5vw,40px) 90px">
+<div style="max-width:780px;margin:0 auto">
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid rgba(20,17,14,.14)">
+    <a href="../" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2rem);letter-spacing:.04em;color:#14110E;text-decoration:none">BALLIN</a>
+    <div style="font-size:11px;font-weight:700;letter-spacing:.22em;color:#6E5B4C;text-align:right">PAGOS DEL EQUIPO<br>CIERRE DE MES</div>
+  </div>
+
+  <div id="tp-thanks" style="display:none;padding:56px 0 20px">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,7vw,4rem);line-height:1;color:#C74A08">RECIBIDO</div>
+    <p style="margin-top:14px;font-size:1.05rem;line-height:1.6;color:#5A5148;max-width:48ch;text-wrap:pretty">Gracias, ya tenemos tu cierre de mes. Diego lo revisa con lo que hay en Trello y te paga según lo que pusiste aquí. Si algo no cuadra, te escribimos.</p>
+    <p style="margin-top:12px;font-size:1rem;line-height:1.6;color:#5A5148;max-width:48ch;text-wrap:pretty">¿Te has equivocado en algo? Vuelve a enviarlo entero antes de que acabe el plazo: vale el último envío.</p>
+    <button type="button" id="tp-again" style="margin-top:26px;padding:13px 22px;border-radius:999px;border:none;background:#14110E;color:#F6F1E9;font-size:13px;font-weight:700;letter-spacing:.14em;cursor:pointer">ENVIAR OTRO</button>
+  </div>
+
+  <div id="tp-main">
+  <div style="padding:clamp(30px,6vw,54px) 0 clamp(24px,4vw,38px);display:grid;gap:16px">
+    <h1 style="font-family:'Hanken Grotesk',sans-serif;font-weight:800;font-size:clamp(1.8rem,5.4vw,3rem);line-height:1.06;letter-spacing:-.02em;text-wrap:balance">Cierre de mes: lo que has hecho y cómo cobras.</h1>
+    <p style="font-size:clamp(1rem,1.4vw,1.1rem);line-height:1.6;color:#5A5148;text-wrap:pretty">Rellénalo una vez al mes y ya está, sin mensajes. Pon cada trabajo en una fila (cliente, tipo de pieza, cantidad y tarifa si la tienes acordada) y la página te suma el total. Diego lo cruza con Trello y paga a cada uno según su trabajo.</p>
+    <div style="padding:14px 16px;border:1px dashed rgba(20,17,14,.22);border-radius:11px;font-size:13.5px;line-height:1.55;color:#5A5148;text-wrap:pretty"><strong style="color:#14110E">Fecha límite:</strong> se envía entre el 29 y el último día de cada mes, con el trabajo de ese mes. Los pagos se hacen el 1 y el 2. Si se te pasa, envíalo igual: se paga en cuanto Diego lo revise (el correo sale marcado «Fuera de plazo»).</div>
+    <div style="font-size:12.5px;font-weight:600;letter-spacing:.06em;color:#6E5B4C">LOS CAMPOS CON * SON OBLIGATORIOS</div>
+  </div>
+
+  <form id="tp-form" action="https://api.web3forms.com/submit" method="POST" novalidate="novalidate" style="display:grid;gap:clamp(44px,7vw,64px)">
+    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+    <datalist id="tp-clients"></datalist>
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">01</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Quién eres y qué mes</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px">
+        <label style="display:grid;gap:8px;align-content:start">
+          <span style="font-weight:600;font-size:13px">Tu nombre <span style="color:#C74A08">*</span></span>
+          <select id="tp-name" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></select>
+        </label>
+        <label style="display:grid;gap:8px;align-content:start">
+          <span style="font-weight:600;font-size:13px">Mes que cobras <span style="color:#C74A08">*</span></span>
+          <select id="tp-month" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></select>
+        </label>
+      </div>
+      <label id="tp-other-wrap" style="display:none;gap:8px">
+        <span style="font-weight:600;font-size:13px">Nombre y apellidos <span style="color:#C74A08">*</span></span>
+        <input type="text" id="tp-other" autocomplete="name" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none">
+      </label>
+      <fieldset style="border:none;display:grid;gap:10px">
+        <span style="font-weight:600;font-size:13px">Tu rol <span style="color:#C74A08">*</span></span>
+        <div id="tp-role" style="display:flex;flex-wrap:wrap;gap:8px">
+          <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="rol" value="Edición de vídeo" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Edición de vídeo</label>
+          <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="rol" value="Motion / VFX" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Motion / VFX</label>
+          <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="rol" value="Diseño" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Diseño</label>
+          <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="rol" value="Grabación" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Grabación</label>
+          <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="rol" value="Color" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Color</label>
+          <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="rol" value="Producción" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Producción</label>
+          <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="rol" value="Operaciones" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Operaciones</label>
+          <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="rol" value="Otro" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Otro</label>
+        </div>
+      </fieldset>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px">
+        <label style="display:grid;gap:8px;align-content:start">
+          <span style="font-weight:600;font-size:13px">Email</span>
+          <input type="email" id="tp-email" autocomplete="email" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none">
+          <span style="font-size:12.5px;color:#6E5B4C">Te llega la respuesta si hay que aclarar algo</span>
+        </label>
+        <label style="display:grid;gap:8px;align-content:start">
+          <span style="font-weight:600;font-size:13px">WhatsApp</span>
+          <input type="tel" id="tp-wa" autocomplete="tel" placeholder="+34 600 000 000" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none">
+          <span style="font-size:12.5px;color:#6E5B4C">Con prefijo de país</span>
+        </label>
+      </div>
+    </section>
+
+    <section style="display:grid;gap:22px">
+      <div style="display:grid;gap:10px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <div style="display:flex;align-items:center;gap:14px"><span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">02</span><span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Lo que has hecho este mes</span></div>
+        <p style="font-style:italic;font-size:14px;line-height:1.55;color:#6E5B4C;text-wrap:pretty">Una fila por cliente y tipo de pieza. Si cobras un fijo, ponlo en una fila con «Fijo mensual». Si no sabes la tarifa, déjala vacía: Diego la pone. El enlace a la entrega o a la tarjeta de Trello ayuda a pagarte antes.</p>
+      </div>
+      <div style="font-weight:600;font-size:13px">Trabajos <span style="color:#C74A08">*</span></div>
+      <div id="tp-rows" style="display:grid;gap:14px">
+        <div data-row style="display:grid;gap:12px;padding:16px;border:1px solid rgba(20,17,14,.14);border-radius:13px;background:#fff">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span data-rown style="font-size:11px;font-weight:800;letter-spacing:.16em;color:#C74A08">TRABAJO 1</span><button type="button" data-del style="display:none;border:none;background:none;font-size:12px;font-weight:700;letter-spacing:.08em;color:#6E5B4C;cursor:pointer;text-decoration:underline">QUITAR</button></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+            <label style="display:grid;gap:6px"><span style="font-size:12.5px;font-weight:600;color:#5A5148">Cliente o proyecto</span><input type="text" data-f="cliente" list="tp-clients" style="width:100%;padding:12px 13px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#FBF8F3;font-size:15px;color:#14110E;outline:none"></label>
+            <label style="display:grid;gap:6px"><span style="font-size:12.5px;font-weight:600;color:#5A5148">Tipo de pieza</span><select data-f="tipo" style="width:100%;padding:12px 13px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#FBF8F3;font-size:15px;color:#14110E;outline:none"><option value="">Elige…</option><option>Reel / vídeo corto</option><option>Vídeo horizontal / YouTube</option><option>Hook o versión</option><option>Vídeo largo / VSL</option><option>Carrusel o diseño</option><option>Miniatura</option><option>Foto editada</option><option>Color</option><option>Grabación (jornada)</option><option>Horas</option><option>Fijo mensual</option><option>Otro</option></select></label>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px">
+            <label style="display:grid;gap:6px"><span style="font-size:12.5px;font-weight:600;color:#5A5148">Cantidad</span><input type="number" data-f="cantidad" min="0" step="any" inputmode="decimal" style="width:100%;padding:12px 13px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#FBF8F3;font-size:15px;color:#14110E;outline:none"></label>
+            <label style="display:grid;gap:6px"><span style="font-size:12.5px;font-weight:600;color:#5A5148">Tarifa por unidad</span><input type="number" data-f="tarifa" min="0" step="any" inputmode="decimal" placeholder="Opcional" style="width:100%;padding:12px 13px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#FBF8F3;font-size:15px;color:#14110E;outline:none"></label>
+            <label style="display:grid;gap:6px"><span style="font-size:12.5px;font-weight:600;color:#5A5148">Moneda</span><select data-f="moneda" style="width:100%;padding:12px 13px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#FBF8F3;font-size:15px;color:#14110E;outline:none"><option>EUR</option><option>USD</option></select></label>
+          </div>
+          <label style="display:grid;gap:6px"><span style="font-size:12.5px;font-weight:600;color:#5A5148">Enlace a la entrega o a la tarjeta de Trello</span><input type="url" data-f="enlace" placeholder="Opcional" style="width:100%;padding:12px 13px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#FBF8F3;font-size:15px;color:#14110E;outline:none"></label>
+        </div>
+      </div>
+      <button type="button" id="tp-add" style="justify-self:start;padding:12px 20px;border-radius:999px;border:1px solid #14110E;background:transparent;color:#14110E;font-size:12.5px;font-weight:700;letter-spacing:.12em;cursor:pointer" style-hover="background:#14110E;color:#F6F1E9">+ AÑADIR OTRO TRABAJO</button>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px;padding:18px 20px;border-radius:13px;background:#14110E;color:#F6F1E9">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.2em;color:#FFB776">TOTAL QUE CALCULAS</span>
+        <span id="tp-total" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);line-height:1;letter-spacing:.02em">0 €</span>
+        <span style="flex-basis:100%;font-size:12.5px;color:#D9CFC4">El importe final lo confirma Diego</span>
+      </div>
+      <label style="display:grid;gap:8px">
+        <span style="font-weight:600;font-size:13px">Notas</span>
+        <textarea id="tp-notes" placeholder="Extras, piezas rehechas, gastos que adelantaste, algo pendiente del mes anterior…" style="width:100%;min-height:92px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical"></textarea>
+      </label>
+    </section>
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">03</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Cómo cobras</span>
+      </div>
+      <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:16px 18px;border:1px solid rgba(20,17,14,.16);border-radius:13px;background:#fff">
+        <input type="checkbox" id="tp-same" style="margin-top:3px;width:18px;height:18px;accent-color:#C74A08;flex:none">
+        <span style="display:grid;gap:4px"><span style="font-weight:600;font-size:14.5px">Mis datos de cobro no han cambiado</span><span style="font-size:13px;line-height:1.5;color:#6E5B4C">Ya los mandé otro mes y son los mismos.</span></span>
+      </label>
+      <div id="tp-pay" style="display:grid;gap:22px">
+        <fieldset style="border:none;display:grid;gap:10px">
+          <span style="font-weight:600;font-size:13px">Forma de cobro <span style="color:#C74A08">*</span></span>
+          <span style="font-size:13px;line-height:1.5;color:#6E5B4C">Preferimos USDC en la red Solana: llega antes y sin comisiones de banco.</span>
+          <div id="tp-method" style="display:flex;flex-wrap:wrap;gap:8px">
+            <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="metodo" value="USDC en Solana" style="margin:0;width:16px;height:16px;accent-color:#C74A08">USDC en Solana (preferido)</label>
+            <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="metodo" value="Transferencia" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Transferencia (IBAN o cuenta + SWIFT)</label>
+            <label data-pill style="display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid rgba(20,17,14,.16);border-radius:999px;background:#fff;font-size:14px;cursor:pointer"><input type="radio" name="metodo" value="Otro" style="margin:0;width:16px;height:16px;accent-color:#C74A08">Otro (PayPal, Binance, Wise…)</label>
+          </div>
+        </fieldset>
+
+        <div data-m="USDC en Solana" style="display:none;gap:8px">
+          <label style="display:grid;gap:8px">
+            <span style="font-weight:600;font-size:13px">Dirección de tu wallet en Solana <span style="color:#C74A08">*</span></span>
+            <input type="text" data-pay="Wallet Solana" data-req="1" id="tp-wallet" autocomplete="off" spellcheck="false" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:14px;font-family:ui-monospace,Menlo,monospace;color:#14110E;outline:none">
+            <span style="font-size:12.5px;line-height:1.5;color:#6E5B4C">Solo red Solana. Cópiala y pégala: un carácter mal y el pago se pierde.</span>
+            <span id="tp-wallet-ok" style="display:none;font-size:12.5px;font-weight:700"></span>
+          </label>
+        </div>
+
+        <div data-m="Transferencia" style="display:none;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px 22px">
+          <label style="display:grid;gap:8px;align-content:start"><span style="font-weight:600;font-size:13px">Titular (nombre y apellidos) <span style="color:#C74A08">*</span></span><input type="text" data-pay="Titular" data-req="1" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></label>
+          <label style="display:grid;gap:8px;align-content:start"><span style="font-weight:600;font-size:13px">País <span style="color:#C74A08">*</span></span><input type="text" data-pay="País" data-req="1" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></label>
+          <label style="display:grid;gap:8px;align-content:start;grid-column:1/-1"><span style="font-weight:600;font-size:13px">Dirección completa con código postal <span style="color:#C74A08">*</span></span><input type="text" data-pay="Dirección" data-req="1" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></label>
+          <label style="display:grid;gap:8px;align-content:start"><span style="font-weight:600;font-size:13px">IBAN o número de cuenta <span style="color:#C74A08">*</span></span><input type="text" data-pay="IBAN / cuenta" data-req="1" spellcheck="false" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></label>
+          <label style="display:grid;gap:8px;align-content:start"><span style="font-weight:600;font-size:13px">SWIFT / BIC <span style="color:#C74A08">*</span></span><input type="text" data-pay="SWIFT / BIC" data-req="1" spellcheck="false" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></label>
+          <label style="display:grid;gap:8px;align-content:start"><span style="font-weight:600;font-size:13px">Banco</span><input type="text" data-pay="Banco" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></label>
+          <label style="display:grid;gap:8px;align-content:start"><span style="font-weight:600;font-size:13px">Moneda de la cuenta</span><input type="text" data-pay="Moneda de la cuenta" placeholder="EUR, USD…" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"></label>
+          <label style="display:grid;gap:8px;align-content:start;grid-column:1/-1"><span style="font-weight:600;font-size:13px">Número de ruta (ABA) u otros datos</span><input type="text" data-pay="ABA / otros" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none"><span style="font-size:12.5px;color:#6E5B4C">Solo si tu banco los pide (cuentas de EE. UU., etc.)</span></label>
+        </div>
+
+        <div data-m="Otro" style="display:none;gap:8px">
+          <label style="display:grid;gap:8px">
+            <span style="font-weight:600;font-size:13px">Cómo quieres cobrar <span style="color:#C74A08">*</span></span>
+            <input type="text" data-pay="Cómo cobra" data-req="1" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none">
+            <span style="font-size:12.5px;color:#6E5B4C">Plataforma y el dato que necesitamos (email de PayPal, ID de Binance, etc.)</span>
+          </label>
+        </div>
+
+        <div style="font-size:12.5px;line-height:1.5;color:#6E5B4C">Tus datos de cobro solo llegan por correo a Diego. No se guardan en esta página ni van en el enlace.</div>
+      </div>
+
+      <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:18px 20px;border:1px solid rgba(20,17,14,.16);border-radius:13px;background:#fff">
+        <input type="checkbox" id="tp-confirm" style="margin-top:3px;width:18px;height:18px;accent-color:#C74A08;flex:none">
+        <span style="font-size:13.5px;line-height:1.6;color:#5A5148;text-wrap:pretty">Confirmo que lo que pongo es el trabajo que he hecho y entregado este mes y que mis datos de cobro son correctos <span style="color:#C74A08;font-weight:600">*</span></span>
+      </label>
+    </section>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding-top:8px;border-top:1px solid rgba(20,17,14,.14)">
+      <button type="submit" id="tp-submit" style="padding:17px 34px;border-radius:999px;border:none;background:#14110E;color:#F6F1E9;font-size:13px;font-weight:700;letter-spacing:.16em;cursor:pointer;transition:background .2s ease" style-hover="background:#C74A08">ENVIAR CIERRE DE MES</button>
+      <div id="tp-late" style="display:none;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:#C74A08">FUERA DE PLAZO · SE ENVÍA IGUAL</div>
+      <div id="tp-error" style="display:none;flex-basis:100%;padding:12px 15px;border:1px solid rgba(199,74,8,.4);border-radius:11px;background:rgba(199,74,8,.05);font-size:13px;line-height:1.5;color:#8A3306"></div>
+    </div>
+  </form>
+  </div>
+
+  <div style="margin-top:70px;padding-top:20px;border-top:1px solid rgba(20,17,14,.12);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:11.5px;font-weight:600;letter-spacing:.14em;color:#6E5B4C">
+    <span>BALLIN · EQUIPO</span>
+    <span>DIEGO.JORK@GMAIL.COM</span>
+  </div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;team&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Datos&quot;},&quot;clients&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Asioka, SMD, Vive Dubái, Nude Project, Scuffers, Mentes Expertas, Red Bull, Monk, Grace Valencia, Noir Essence, Racks Academy, Latin Fest, BigSound, Revolutia, Cosmic Group&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Datos&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const $ = id => document.getElementById(id), form = $('tp-form');
+    if (!form || form._tp) return; form._tp = true;
+    const ACCESS = '75ebf05c-72fa-4968-bc99-9a3f2524979d';
+    const team = (this.props.team || '').split(',').map(s => s.trim()).filter(Boolean);
+    const clients = (this.props.clients || 'Asioka, SMD, Vive Dubái, Nude Project, Scuffers, Mentes Expertas, Red Bull, Monk, Grace Valencia, Noir Essence, Racks Academy, Latin Fest, BigSound, Revolutia, Cosmic Group').split(',').map(s => s.trim()).filter(Boolean);
+    $('tp-clients').innerHTML = clients.map(c => '<option value="' + c.replace(/"/g, '&quot;') + '"></option>').join('');
+    $('tp-name').innerHTML = '<option value="">Elige tu nombre…</option>' + team.map(n => '<option>' + n + '</option>').join('') + '<option value="__otro">Otro (no estoy en la lista)</option>';
+
+    const MES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    const now = new Date(), opts = [];
+    for (let i = -2; i <= 0; i++) { const d = new Date(now.getFullYear(), now.getMonth() + i, 1); opts.push({ y: d.getFullYear(), m: d.getMonth(), label: MES[d.getMonth()] + ' ' + d.getFullYear() }); }
+    const def = now.getDate() <= 10 ? 1 : 2;
+    $('tp-month').innerHTML = opts.map((o, i) => '<option value="' + i + '"' + (i === def ? ' selected' : '') + '>' + o.label + '</option>').join('');
+    const isLate = () => { const o = opts[+$('tp-month').value]; const last = new Date(o.y, o.m + 1, 0).getDate(); return !(now.getFullYear() === o.y && now.getMonth() === o.m && now.getDate() >= 29 && now.getDate() <= last); };
+    const lateUI = () => { $('tp-late').style.display = isLate() ? 'block' : 'none'; };
+
+    const KEY = 'ballin-team-payments-profile';
+    try { const p = JSON.parse(localStorage.getItem(KEY) || 'null'); if (p) { if (p.name && [...$('tp-name').options].some(o => o.value === p.name)) $('tp-name').value = p.name; if (p.other) $('tp-other').value = p.other; if (p.email) $('tp-email').value = p.email; if (p.wa) $('tp-wa').value = p.wa; if (p.rol) { const r = form.querySelector('input[name="rol"][value="' + p.rol + '"]'); if (r) r.checked = true; } } } catch (e) {}
+
+    const paint = () => form.querySelectorAll('[data-pill]').forEach(l => { const on = l.querySelector('input').checked; l.style.borderColor = on ? '#C74A08' : 'rgba(20,17,14,.16)'; l.style.background = on ? '#FFF7F0' : '#fff'; l.style.boxShadow = on ? 'inset 0 0 0 1px #C74A08' : 'none'; });
+    const method = () => (form.querySelector('input[name="metodo"]:checked') || {}).value || '';
+    const ui = () => {
+      $('tp-other-wrap').style.display = $('tp-name').value === '__otro' ? 'grid' : 'none';
+      $('tp-pay').style.display = $('tp-same').checked ? 'none' : 'grid';
+      form.querySelectorAll('[data-m]').forEach(b => { b.style.display = b.dataset.m === method() ? 'grid' : 'none'; });
+      paint(); lateUI();
+    };
+
+    const rowsEl = $('tp-rows'), tpl = rowsEl.querySelector('[data-row]').cloneNode(true);
+    const renum = () => { const rs = [...rowsEl.querySelectorAll('[data-row]')]; rs.forEach((r, i) => { r.querySelector('[data-rown]').textContent = 'TRABAJO ' + (i + 1); r.querySelector('[data-del]').style.display = rs.length > 1 ? 'inline' : 'none'; }); };
+    const rows = () => [...rowsEl.querySelectorAll('[data-row]')].map(r => { const g = f => r.querySelector('[data-f="' + f + '"]').value.trim(); return { cliente: g('cliente'), tipo: g('tipo'), cantidad: g('cantidad'), tarifa: g('tarifa'), moneda: g('moneda'), enlace: g('enlace') }; }).filter(r => r.cliente || r.tipo || r.cantidad);
+    const fmt = (n, c) => n.toLocaleString('es-ES', { maximumFractionDigits: 2 }) + (c === 'EUR' ? ' €' : ' USD');
+    const total = () => { const t = {}; rows().forEach(r => { const q = parseFloat(r.cantidad), p = parseFloat(r.tarifa); if (q > 0 && p >= 0) t[r.moneda] = (t[r.moneda] || 0) + q * p; }); const s = Object.keys(t).map(c => fmt(t[c], c)).join(' + '); return s || '0 €'; };
+    const recalc = () => { $('tp-total').textContent = total(); };
+    $('tp-add').addEventListener('click', () => { const n = tpl.cloneNode(true); rowsEl.appendChild(n); renum(); n.querySelector('[data-f="cliente"]').focus(); });
+    rowsEl.addEventListener('click', e => { const d = e.target.closest('[data-del]'); if (d) { d.closest('[data-row]').remove(); renum(); recalc(); } });
+
+    const SOL = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+    const walletUI = () => { const v = $('tp-wallet').value.trim(), el = $('tp-wallet-ok'); if (!v) { el.style.display = 'none'; return; } const ok = SOL.test(v); el.style.display = 'block'; el.style.color = ok ? '#2F7A3A' : '#8A3306'; el.textContent = ok ? 'Formato de dirección de Solana correcto' : 'Esto no parece una dirección de Solana. Revísala.'; };
+    $('tp-wallet').addEventListener('input', walletUI);
+
+    form.addEventListener('input', recalc);
+    form.addEventListener('change', () => { ui(); recalc(); });
+    ui(); recalc();
+
+    const fail = (msg, el) => { const err = $('tp-error'); err.textContent = msg; err.style.display = 'block'; if (el) { window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 120, behavior: 'smooth' }); if (el.focus) el.focus(); } };
+    form.addEventListener('submit', async e => {
+      e.preventDefault(); $('tp-error').style.display = 'none';
+      const nameSel = $('tp-name').value, name = nameSel === '__otro' ? $('tp-other').value.trim() : nameSel;
+      const rol = (form.querySelector('input[name="rol"]:checked') || {}).value;
+      const rs = rows(), same = $('tp-same').checked, m = method();
+      if (!name) return fail('Elige tu nombre.', nameSel === '__otro' ? $('tp-other') : $('tp-name'));
+      if (!rol) return fail('Elige tu rol.', $('tp-role'));
+      if (!rs.length || rs.some(r => !r.cliente || !r.tipo || !r.cantidad)) return fail('Rellena al menos un trabajo con cliente, tipo de pieza y cantidad.', rowsEl);
+      const pay = {};
+      if (!same) {
+        if (!m) return fail('Elige tu forma de cobro.', $('tp-method'));
+        const box = form.querySelector('[data-m="' + m + '"]');
+        for (const el of box.querySelectorAll('[data-pay]')) { const v = el.value.trim(); if (el.dataset.req && !v) return fail('Completa los datos de cobro marcados con *.', el); if (v) pay[el.dataset.pay] = v; }
+        if (m === 'USDC en Solana' && !SOL.test(pay['Wallet Solana'])) return fail('La dirección de la wallet no tiene formato de Solana. Revísala antes de enviar.', $('tp-wallet'));
+      }
+      if (!$('tp-confirm').checked) return fail('Marca la confirmación antes de enviar.', $('tp-confirm'));
+      const btn = $('tp-submit'), label = btn.textContent; btn.disabled = true; btn.textContent = 'ENVIANDO…'; btn.style.opacity = '.6';
+      const late = isLate(), mes = opts[+$('tp-month').value].label;
+      const lines = rs.map((r, i) => (i + 1) + '. ' + r.cliente + ' · ' + r.tipo + ' · ' + r.cantidad + (r.tarifa ? ' × ' + r.tarifa + ' ' + r.moneda : ' · tarifa sin indicar') + (r.enlace ? ' · ' + r.enlace : '')).join('\n');
+      const enviado = new Intl.DateTimeFormat('es-ES', { timeZone: 'Europe/Madrid', dateStyle: 'short', timeStyle: 'short' }).format(new Date()) + ' (hora de España)';
+      const payload = { access_key: ACCESS, subject: (late ? '[Fuera de plazo] ' : '') + 'Pagos equipo · ' + mes + ' · ' + name + ' — Ballin', from_name: 'BALLIN · Pagos del equipo',
+        'Nombre': name, 'Mes': mes, 'Rol': rol };
+      if ($('tp-email').value.trim()) { payload['Email'] = $('tp-email').value.trim(); payload.replyto = payload['Email']; }
+      if ($('tp-wa').value.trim()) payload['WhatsApp'] = $('tp-wa').value.trim();
+      Object.assign(payload, { 'Trabajos': lines, 'Total calculado': total() + ' (a confirmar por Diego)' });
+      if ($('tp-notes').value.trim()) payload['Notas'] = $('tp-notes').value.trim();
+      payload['Datos de cobro sin cambios'] = same ? 'Sí' : 'No';
+      if (!same) { payload['Forma de cobro'] = m; Object.keys(pay).forEach(k => payload['Cobro · ' + k] = pay[k]); }
+      payload['Fuera de plazo'] = late ? 'Sí' : 'No';
+      payload['Enviado'] = enviado;
+      try {
+        const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json; charset=utf-8', Accept: 'application/json' }, body: JSON.stringify(payload) });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === false) throw new Error(data.message || 'Error');
+        try { localStorage.setItem(KEY, JSON.stringify({ name: nameSel, other: $('tp-other').value.trim(), email: $('tp-email').value.trim(), wa: $('tp-wa').value.trim(), rol })); } catch (x) {}
+        form.querySelectorAll('[data-pay]').forEach(el => el.value = '');
+        $('tp-main').style.display = 'none'; $('tp-thanks').style.display = 'block'; window.scrollTo(0, 0);
+      } catch (x) { fail('No se ha podido enviar. Revisa tu conexión y vuelve a intentarlo, o escribe a diego.jork@gmail.com.'); }
+      btn.disabled = false; btn.textContent = label; btn.style.opacity = '';
+    });
+    $('tp-again').addEventListener('click', () => { $('tp-thanks').style.display = 'none'; $('tp-main').style.display = 'block'; window.scrollTo(0, 0); });
+  }
+}
+</script>
+</body>
+</html>

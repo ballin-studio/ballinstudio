@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trabaja con nosotros — BALLIN</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#F6F1E9;color:#14110E;font-family:'Hanken Grotesk',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:#C74A08;text-decoration:none}
+a:hover{color:#E2540A;text-decoration:underline}
+::selection{background:#FF6B12;color:#fff}
+input,textarea,button,select{font-family:inherit}
+::placeholder{color:#6E5B4C}
+input[type="file"]::file-selector-button{margin-right:14px;padding:10px 16px;border:none;border-radius:999px;background:#14110E;color:#F6F1E9;font-size:12px;font-weight:700;letter-spacing:.12em;cursor:pointer}
+</style>
+</helmet>
+
+<div style="min-height:100vh;padding:clamp(22px,5vw,64px) clamp(16px,5vw,40px) 90px">
+<div style="max-width:780px;margin:0 auto">
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid rgba(20,17,14,.14)">
+    <a href="../" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,4vw,2rem);letter-spacing:.04em;color:#14110E;text-decoration:none">BALLIN</a>
+    <div style="font-size:11px;font-weight:700;letter-spacing:.22em;color:#6E5B4C;text-align:right">TRABAJA<br>CON NOSOTROS</div>
+  </div>
+
+  <div id="tw-thanks" style="display:none;padding:56px 0 20px">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,7vw,4rem);line-height:1;color:#C74A08">RECIBIDO</div>
+    <p style="margin-top:14px;font-size:1.05rem;line-height:1.6;color:#5A5148;max-width:44ch;text-wrap:pretty">Gracias, ya tenemos tu perfil. Revisamos cada candidatura y, si encaja con lo que buscamos, te escribimos.</p>
+    <a href="../" style="display:inline-block;margin-top:26px;padding:13px 22px;border-radius:999px;background:#14110E;color:#F6F1E9;font-size:13px;font-weight:700;letter-spacing:.14em">VOLVER A LA WEB</a>
+  </div>
+
+  <div id="tw-main">
+  <div style="padding:clamp(30px,6vw,54px) 0 clamp(24px,4vw,38px)">
+    <h1 style="font-family:'Hanken Grotesk',sans-serif;font-weight:800;font-size:clamp(1.8rem,5.4vw,3rem);line-height:1.06;letter-spacing:-.02em;text-wrap:balance">Crea con Ballin.</h1>
+    <p style="margin-top:16px;font-size:clamp(1rem,1.4vw,1.1rem);line-height:1.6;color:#5A5148;text-wrap:pretty">Editores, fotógrafos, diseñadores y todas las mentes creativas. Déjanos tus datos y enséñanos tu trabajo: con tu web o subiendo tu CV o portfolio.</p>
+    <div style="margin-top:20px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:#6E5B4C">LOS CAMPOS CON * SON OBLIGATORIOS</div>
+  </div>
+
+  <form id="tw-form" action="https://formsubmit.co/diego.jork@gmail.com" method="POST" enctype="multipart/form-data" style="display:grid;gap:clamp(38px,6vw,56px)">
+    <input type="hidden" name="_subject" value="Nueva candidatura — Trabaja con BALLIN">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" id="tw-next" value="">
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">01</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Sobre ti</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px">
+        <label style="display:flex;flex-direction:column">
+          <span style="font-weight:600;font-size:13px;margin-bottom:8px">Nombre <span style="color:#C74A08">*</span></span>
+          <input type="text" name="Nombre" required="required" autocomplete="given-name" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </label>
+        <label style="display:flex;flex-direction:column">
+          <span style="font-weight:600;font-size:13px;margin-bottom:8px">Apellido <span style="color:#C74A08">*</span></span>
+          <input type="text" name="Apellido" required="required" autocomplete="family-name" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </label>
+        <label style="display:flex;flex-direction:column">
+          <span style="font-weight:600;font-size:13px;margin-bottom:8px">Email <span style="color:#C74A08">*</span></span>
+          <input type="email" name="email" required="required" autocomplete="email" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </label>
+        <label style="display:flex;flex-direction:column">
+          <span style="font-weight:600;font-size:13px;margin-bottom:8px">País <span style="color:#C74A08">*</span></span>
+          <input type="text" name="País" required="required" autocomplete="country-name" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+        </label>
+      </div>
+    </section>
+
+    <section style="display:grid;gap:22px">
+      <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,17,14,.14)">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:.9;color:#C74A08">02</span>
+        <span style="font-weight:800;font-size:1.35rem;letter-spacing:-.01em">Tu trabajo</span>
+      </div>
+      <p style="font-size:14px;line-height:1.6;color:#5A5148;text-wrap:pretty">Pon tu sitio web o sube tus archivos. Con uno de los dos es suficiente.</p>
+      <label style="display:flex;flex-direction:column">
+        <span style="font-weight:600;font-size:13px;margin-bottom:8px">Sitio web o portfolio online</span>
+        <input type="url" name="Sitio web" id="tw-web" placeholder="https://" style="width:100%;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;color:#14110E;outline:none" style-focus="border-color:#C74A08">
+      </label>
+      <label style="display:flex;flex-direction:column">
+        <span style="font-weight:600;font-size:13px;margin-bottom:8px">CV o portfolio en archivo</span>
+        <input type="file" name="attachment" id="tw-file" accept=".pdf,.jpg,.jpeg,.png" style="width:100%;padding:12px;border:1px dashed rgba(20,17,14,.28);border-radius:10px;background:#fff;font-size:14px;color:#5A5148;cursor:pointer">
+        <span style="margin-top:8px;font-size:12.5px;color:#6E5B4C">PDF, JPG o PNG · máximo 5 MB</span>
+      </label>
+      <div id="tw-need" style="display:none;padding:12px 15px;border:1px solid rgba(199,74,8,.4);border-radius:11px;background:rgba(199,74,8,.05);font-size:13px;line-height:1.5;color:#8A3306">Añade tu sitio web o sube un archivo para que podamos ver tu trabajo.</div>
+      <label style="display:flex;flex-direction:column">
+        <span style="font-weight:600;font-size:13px;margin-bottom:8px">Algo más que debamos saber</span>
+        <textarea name="Mensaje" placeholder="Qué haces, con qué herramientas trabajas, disponibilidad" style="width:100%;min-height:110px;padding:13px 14px;border:1px solid rgba(20,17,14,.16);border-radius:10px;background:#fff;font-size:15px;line-height:1.5;color:#14110E;outline:none;resize:vertical" style-focus="border-color:#C74A08"></textarea>
+      </label>
+      <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:18px 20px;border:1px solid rgba(20,17,14,.16);border-radius:13px;background:#fff">
+        <input type="checkbox" name="Aceptación" value="Sí" required="required" style="margin-top:3px;width:18px;height:18px;accent-color:#C74A08;flex:none">
+        <span style="font-size:13.5px;line-height:1.6;color:#5A5148;text-wrap:pretty">Acepto que BALLIN guarde estos datos para valorar mi candidatura. <span style="color:#C74A08;font-weight:600">*</span></span>
+      </label>
+    </section>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding-top:8px;border-top:1px solid rgba(20,17,14,.14)">
+      <button type="submit" id="tw-submit" style="padding:17px 34px;border-radius:999px;border:none;background:#14110E;color:#F6F1E9;font-size:13px;font-weight:700;letter-spacing:.16em;cursor:pointer;transition:background .2s ease" style-hover="background:#C74A08">ENVIAR CANDIDATURA</button>
+      <div style="font-size:12.5px;line-height:1.5;color:#6E5B4C;max-width:34ch">Llega directamente a nuestro equipo.</div>
+    </div>
+  </form>
+  </div>
+
+  <div style="margin-top:70px;padding-top:20px;border-top:1px solid rgba(20,17,14,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;letter-spacing:.12em;color:#6E5B4C">
+    <a href="../" style="color:#6E5B4C">BALLINSTUDIO.COM</a>
+    <a href="mailto:diego.jork@gmail.com" style="color:#6E5B4C">DIEGO.JORK@GMAIL.COM</a>
+  </div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const $ = id => document.getElementById(id);
+    if (location.hash === '#enviado') { $('tw-main').style.display = 'none'; $('tw-thanks').style.display = 'block'; }
+    const form = $('tw-form'); if (!form || form._tw) return; form._tw = true;
+    form.addEventListener('submit', e => {
+      const web = $('tw-web').value.trim(), file = $('tw-file').files[0];
+      if (!web && !file) { e.preventDefault(); $('tw-need').style.display = 'block'; return; }
+      if (file && file.size > 5 * 1024 * 1024) { e.preventDefault(); $('tw-need').textContent = 'El archivo pesa más de 5 MB. Comprímelo o pon un enlace en el campo de sitio web.'; $('tw-need').style.display = 'block'; return; }
+      $('tw-need').style.display = 'none';
+      $('tw-next').value = location.href.split('#')[0] + '#enviado';
+      $('tw-submit').textContent = 'ENVIANDO…';
+    });
+  }
+}
+</script>
+</body>
+</html>
